@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #EDEDED;
+            font: 400 16px/1.5 PingFangSC-regular, Tahoma, "Lucida Grande", Verdana, "Microsoft Yahei", STXihei, hei;
+        }
+        
+        div p {
+            font-size: 18px;
+            color: #92959A;
+            font-weight: bold;
+            line-height: 1.2;
+            /* padding: 0px 0px; */
+        }
+        
+        .btn {
+            text-align: center;
+            margin-top: 5px;
+        }
+        
+        #remember {
+            margin-left: 120px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>更新日志V3.1：</p>
+        <p>V2.0在进馆成功后面添加预约记录页面</p>
+        <p>V3.0更新了很多内容，用户交互页面增强，具体自己体验吧！</p>
+		<p>v3.1修改了预约记录触发不了的bug</p>
+		<p>软件绿色无毒，可以放心使用！</p>
+        <p>本软件仅供交流和学习！不可用于任何商业行为！出事本人概不负责！软件用原生JS写成，欢迎大佬进行优化！</p>
+		<p>仅支持安卓系统，本人没有ios系统profile开发证书，有的同学可以直接将源码打包成ios格式</p>
+        <p>防控疫情，人人有责！</p>
+
+    </div>
+    你的学号-名字：<input type="text" id="userName" value="20181234-萧炎"><br>
+    <input type="checkbox" id="remember"> 记住用户名
+    <div class="btn">
+        <button class="set">保存（预约记录用）<br> 严格按照样式填写！<br>点我进入主页面！</button>
+    </div>
+
+    <script>
+        var set = document.querySelector('.set');
+        var username = document.querySelector('#userName');
+        var remember = document.querySelector('#remember');
+        //记住用户名
+        if (localStorage.getItem('userName')) {
+            username.value = localStorage.getItem('userName');
+            remember.checked = true;
+        }
+        remember.addEventListener('change', function() {
+                if (this.checked) {
+                    localStorage.setItem('userName', userName.value)
+                } else {
+                    localStorage.removeItem('userName');
+                }
+            })
+            //进入主页面
+        set.addEventListener('click', function() {
+            localStorage.setItem('userName', userName.value)
+            location.href = 'newvx.html';
+        })
+    </script>
+
+</body>
+
+</html>

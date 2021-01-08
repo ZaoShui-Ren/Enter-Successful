@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        body {
+            max-width: 540px;
+            min-width: 320px;
+            margin: 0 auto;
+            font: 400 16px/1.5 PingFangSC-regular, Tahoma, "Lucida Grande", Verdana, "Microsoft Yahei", STXihei, hei;
+            color: #000;
+            background: #f2f2f2;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        div img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .jilu {
+            position: relative;
+            border-top: 1px solid #ccc;
+            background-color: #FFFFFF;
+        }
+        
+        .jilu .row {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0px 10px 20px;
+        }
+        
+        .jilu .pass {
+            font-size: 10px;
+            position: absolute;
+            margin-left: 145px;
+            margin-top: -25px;
+            background: #51C7C9;
+            padding: 4px;
+            border-radius: 9px;
+            color: #ffffff;
+        }
+        
+        .jilu .type {
+            position: absolute;
+            color: #92959A;
+            right: 37px;
+            top: 33px;
+        }
+        
+        .jilu .time {
+            color: #92959A;
+        }
+        
+        .noMore {
+            font-size: 13px;
+            background: #f2f2f2;
+            color: #92959A;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div><img src="img/top.jpg" alt=""></div>
+    <div class="jilu">
+        <div class="row">
+            <p class="changeName">20181234-萧炎</p>
+            <span class="pass">已通过</span>
+            <p class="time change">2020-12-04 13点 至 14 点</p>
+            <span class="type">其他</span>
+        </div>
+        <div class="jilu">
+            <div class="row">
+                <p class="changeName">20181234-萧炎</p>
+                <span class="pass">已通过</span>
+                <p class="time">2020-12-03 13点 至 14点</p>
+                <span class="type">其他</span>
+            </div>
+            <div class="jilu">
+                <div class="row">
+                    <p class="changeName">20181234-萧炎</p>
+                    <span class="pass">已通过</span>
+                    <p class="time">2020-12-02 17点 至 19点</p>
+                    <span class="type">其他</span>
+                </div>
+                <div class="jilu">
+                    <div class="row">
+                        <p class="changeName">20181234-萧炎</p>
+                        <span class="pass">已通过</span>
+                        <p class="time">2020-11-06 13点 至 15点</p>
+                        <span class="type">其他</span>
+                    </div>
+                    <div class="jilu">
+                        <div class="row">
+                            <p class="changeName">20181234-萧炎</p>
+                            <span class="pass">已通过</span>
+                            <p class="time">2020-11-04 15点 至 18点</p>
+                            <span class="type">其他</span>
+                        </div>
+                        <div class="jilu">
+                            <div class="row">
+                                <p class="changeName">20181234-萧炎</p>
+                                <span class="pass">已通过</span>
+                                <p class="time">2020-11-02 16点 至 18点</p>
+                                <span class="type">其他</span>
+                            </div>
+                            <div class="jilu">
+                                <div class="row">
+                                    <p class="changeName">20181234-萧炎</p>
+                                    <span class="pass">已通过</span>
+                                    <p class="time">2020-11-01 17点 至 20点</p>
+                                    <span class="type">其他</span>
+                                </div>
+                            </div>
+                            <div class="noMore">没有更多了</div>
+                            <script>
+                                var changeTime = document.querySelector('.change');
+                                getNowFormatDate();
+
+                                function  getNowFormatDate()  {    
+                                    var  date  =  new  Date();    
+                                    var  seperator1  =  "-";    
+                                    var  seperator2  =  ":";    
+                                    var  month  =  date.getMonth()  +  1;    
+                                    var  strDate  =  date.getDate();    
+                                    if  (month  >=  1  &&  month  <=  9)  {        
+                                        month  =  "0"  +  month;    
+                                    }    
+                                    if  (strDate  >=  0  &&  strDate  <=  9)  {        
+                                        strDate  =  "0"  +  strDate;    
+                                    }   
+                                    var  currentdate  =  date.getFullYear()  +  seperator1  +  month  +  seperator1  +  strDate +  " "  +  date.getHours() + '点 ' + '至 ' + parseInt((date.getHours()) + 2) + '点';
+                                    changeTime.innerHTML = currentdate;
+                                }
+                                var have = document.querySelectorAll('.changeName');
+                                var get = document.querySelector('.jilu');
+                                window.onload  = function ()  { 
+                                        // console.log(localStorage.getItem('userName'));
+                                        for (var i = 0; i < have.length; i++) {
+                                            have[i].innerHTML = localStorage.getItem('userName');
+                                        }
+                                    }
+                                    //之前的bug 已修复
+                                    // get.addEventListener('click', function() {
+                                    //     for (var i = 0; i < have.length; i++) {
+                                    //         have[i].innerHTML = localStorage.getItem('userName');
+                                    //     }
+                                    //     // console.log(localStorage.getItem('userName'));
+                                    // })
+                                var img = document.querySelector('img');
+                                img.addEventListener('click', function() {
+                                    location.href = 'newvx.html';
+                                })
+                            </script>
+
+
+</body>
+
+</html>
